@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SehirProje.Models.populations>
+
+@{
+    ViewBag.Title = "Nüfus Dağılımı";
+}
+
+<main aria-labelledby="title">
+    <div class="container mt-4">
+
+        <h1 class="mb-4">İstanbul</h1>
+
+
+
+
+        <!-- Nüfus Dağılımı -->
+        <section class="mb-5">
+            <h3>Nüfus Dağılımı</h3>
+            <ul class="list-group list-group-flush">
+                @foreach (var item in Model)
+                {
+                    <li class="list-group-item">@item.year : @item.count.ToString("N0")</li>
+                }
+            </ul>
+        </section>
+
+
+
+
+    </div>
+</main>

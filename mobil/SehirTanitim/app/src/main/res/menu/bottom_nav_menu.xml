@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="Ana Sayfa" />
+    <item
+        android:id="@+id/nav_page1"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Nüfus" />
+    <item
+        android:id="@+id/nav_page2"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="İlçeler" />
+    <item
+        android:id="@+id/nav_page3"
+        android:icon="@android:drawable/ic_menu_day"
+        android:title="Tarihi Yerler" />
+</menu>

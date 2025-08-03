@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Admin Paneli";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center my-4">Admin Paneli</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <!-- Nüfus Yönetimi -->
+        <div class="col-md-4 mb-4">
+            <a href="@Url.Action("Index", "PopulationAdmin")" class="text-decoration-none">
+                <div class="card text-white bg-primary shadow-lg text-center h-100">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h3 class="card-title">Nüfus Bilgileri</h3>
+                        <p class="card-text">Nüfus verilerini yönetin</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- İlçe Yönetimi -->
+        <div class="col-md-4 mb-4">
+            <a href="@Url.Action("Index", "DistrictAdmin")" class="text-decoration-none">
+                <div class="card text-white bg-success shadow-lg text-center h-100">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h3 class="card-title">İlçe Bilgileri</h3>
+                        <p class="card-text">İlçeleri düzenleyin</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Gezilecek Yerler Yönetimi -->
+        <div class="col-md-4 mb-4">
+            <a href="@Url.Action("Index", "placeAdmin")" class="text-decoration-none">
+                <div class="card text-white bg-warning shadow-lg text-center h-100">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h3 class="card-title">Gezilecek Yerler</h3>
+                        <p class="card-text">Gezilecek yerleri yönetin</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- 🆕 Slider Yönetimi -->
+        <div class="col-md-4 mb-4">
+            <a href="@Url.Action("Index", "SliderAdmin")" class="text-decoration-none">
+                <div class="card text-white bg-danger shadow-lg text-center h-100">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h3 class="card-title">Slider Yönetimi</h3>
+                        <p class="card-text">Ana sayfa slider görsellerini yönetin</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>

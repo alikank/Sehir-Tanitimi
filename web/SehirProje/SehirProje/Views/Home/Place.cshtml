@@ -1,0 +1,23 @@
+﻿@model IEnumerable<SehirProje.Models.places>
+
+@{
+    ViewBag.Title = "Tarihi Yerler";
+}
+
+
+<div class="container mt-4">
+
+
+
+    <!-- Tarihi ve Turistik Yerler -->
+    <section>
+        <h3>Tarihi ve Turistik Yerler</h3>
+        <ul class="ml-3">
+            @foreach (var place in Model)
+            {
+                <li>@place.place_name</li>
+            }
+        </ul>
+    </section>
+
+</div>

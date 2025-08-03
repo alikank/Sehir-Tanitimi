@@ -1,0 +1,25 @@
+﻿@model SehirProje.Models.places
+
+@{
+    ViewBag.Title = "Kayıt Detayları";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.place_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.place_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

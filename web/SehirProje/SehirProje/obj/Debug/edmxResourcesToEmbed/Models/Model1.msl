@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities1">
+    <EntitySetMapping Name="districts">
+      <EntityTypeMapping TypeName="Database1Model.districts">
+        <MappingFragment StoreEntitySet="districts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="district_name" ColumnName="district_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="places">
+      <EntityTypeMapping TypeName="Database1Model.places">
+        <MappingFragment StoreEntitySet="places">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="place_name" ColumnName="place_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="populations">
+      <EntityTypeMapping TypeName="Database1Model.populations">
+        <MappingFragment StoreEntitySet="populations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="count" ColumnName="count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="slider_images">
+      <EntityTypeMapping TypeName="Database1Model.slider_images">
+        <MappingFragment StoreEntitySet="slider_images">
+          <ScalarProperty Name="image_text" ColumnName="image_text" />
+          <ScalarProperty Name="image_url" ColumnName="image_url" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

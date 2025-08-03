@@ -1,0 +1,36 @@
+﻿@model IEnumerable<SehirProje.Models.districts>
+
+
+@{
+    ViewBag.Title = "İlçeler";
+
+}
+
+<div class="container mt-4">
+
+
+
+
+    <!-- İlçeler Tablosu -->
+    <section class="mb-5">
+        <h3>İlçeler</h3>
+        <table class="table table-bordered">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>İlçe Adı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.district_name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+
+
+</div>

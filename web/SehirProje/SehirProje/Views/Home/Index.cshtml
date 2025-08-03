@@ -1,0 +1,318 @@
+﻿@model IEnumerable<SehirProje.Models.slider_images>
+
+@{
+
+    ViewBag.Title = "Şehir Tanıtımı";
+
+}
+<!-- Slider -->
+<section class="mb-5">
+    <style>
+        /* Ana Carousel Stilleri */
+        .carousel {
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .carousel-inner {
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: black;
+            position: relative;
+        }
+
+        .carousel-item {
+            position: relative;
+            height: 650px;
+            background-color: black;
+            overflow: hidden;
+        }
+
+            .carousel-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: black;
+                z-index: 0;
+            }
+
+            .carousel-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                position: relative;
+                z-index: 1;
+            }
+
+        /* Caption Stilleri */
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            position: absolute;
+            z-index: 4; /* z-index arttırıldı */
+            bottom: 60px; /* indicators'ın üzerine taşımak için */
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            min-width: 300px;
+        }
+
+        /* Gösterge Noktaları */
+        /* Gösterge Noktaları */
+        .carousel-indicators {
+            margin-bottom: 20px;
+            z-index: 3;
+            bottom: 20px; /* indicators'ı aşağıda tutmak için */
+        }
+
+            .carousel-indicators li {
+                background-color: #fff;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin: 0 5px;
+            }
+
+        /* Kontrol Okları */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            opacity: 0.7;
+            z-index: 3;
+        }
+
+            .carousel-control-prev:hover,
+            .carousel-control-next:hover {
+                opacity: 1;
+            }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Mobil Uyumluluk */
+        @@media (max-width: 768px) {
+            .carousel-item {
+                height: 400px;
+            }
+
+            .carousel-caption {
+                padding: 10px 15px;
+                margin-bottom: 20px;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 10%;
+            }
+        }
+
+        /* Hover Efektleri */
+        .carousel:hover .carousel-control-prev,
+        .carousel:hover .carousel-control-next {
+            opacity: 0.9;
+        }
+
+        /* Geçiş Animasyonları */
+        .carousel.slide .carousel-item {
+            transition: transform .6s ease-in-out;
+        }
+
+        .carousel-item.active,
+        .carousel-item-next,
+        .carousel-item-prev {
+            display: block;
+            background-color: black;
+        }
+
+        /* Shadow Efekti */
+        .shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Yükleme Durumu için Placeholder */
+        .carousel-item.loading {
+            background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s linear infinite;
+        }
+
+        @@keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+    </style>
+
+    <div id="cityCarousel" class="carousel slide shadow" data-bs-ride="carousel" data-bs-interval="3000">
+        <ol class="carousel-indicators">
+            @{
+                int i = 0;
+                foreach (var item in Model)
+                {
+                    <li data-bs-target="#cityCarousel" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
+                    i++;
+                }
+            }
+        </ol>
+
+        <div class="carousel-inner">
+            @{
+                int index = 0; // index değişkenini burada tanımlıyoruz
+                foreach (var item in Model)
+                {
+                    <div class="carousel-item @(index == 0 ? "active" : "")">
+                        <img src="@item.image_url" class="d-block w-100" alt="Resim @(index + 1)">
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>@item.image_text</p>
+                        </div>
+                    </div>
+                    index++;
+                }
+            }
+        </div>
+        <a class="carousel-control-prev" href="#cityCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Önceki</span>
+        </a>
+        <a class="carousel-control-next" href="#cityCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Sonraki</span>
+        </a>
+    </div>
+
+    <!-- İstanbul Tanıtım Bölümü -->
+    <section class="istanbul-intro py-5">
+        <style>
+            .istanbul-intro {
+                background-color: #f8f9fa;
+                padding: 40px 0;
+            }
+
+            .intro-section {
+                background: white;
+                border-radius: 15px;
+                padding: 30px;
+                margin-bottom: 30px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+                transition: transform 0.3s ease;
+            }
+
+                .intro-section:hover {
+                    transform: translateY(-5px);
+                }
+
+            .section-title {
+                color: #2c3e50;
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+                text-align: center;
+                font-weight: 600;
+                position: relative;
+            }
+
+                .section-title::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100px;
+                    height: 3px;
+                    background: linear-gradient(90deg, #2c3e50, #3498db);
+                }
+
+            .intro-section h3 {
+                color: #2c3e50;
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            .intro-section p {
+                color: #555;
+                line-height: 1.8;
+                margin-bottom: 15px;
+            }
+
+            .highlight-box {
+                background: #f8f9fa;
+                padding: 15px;
+                border-left: 4px solid #3498db;
+                margin: 15px 0;
+                border-radius: 0 5px 5px 0;
+            }
+
+                .highlight-box strong {
+                    color: #2c3e50;
+                    display: block;
+                    margin-bottom: 5px;
+                }
+        </style>
+
+        <div class="container">
+            <h2 class="section-title">İstanbul: İki Kıtanın Buluşma Noktası</h2>
+
+            <div class="intro-section">
+                <h3>Tarihi Zenginlik</h3>
+                <p>8500 yıllık köklü tarihiyle İstanbul, dünya tarihinin en önemli şehirlerinden biridir. Roma, Bizans ve Osmanlı İmparatorluklarına başkentlik yapan bu eşsiz şehir, üç büyük medeniyetin izlerini günümüze taşımaktadır.</p>
+                <div class="highlight-box">
+                    <strong>Tarihi Yapılar</strong>
+                    Ayasofya, Topkapı Sarayı, Sultanahmet Camii, Yerebatan Sarnıcı ve Galata Kulesi gibi dünyaca ünlü yapıtlar, şehrin tarih kokan sokaklarını süslemektedir.
+                </div>
+            </div>
+
+            <div class="intro-section">
+                <h3>Kültür ve Sanat</h3>
+                <p>İstanbul, farklı kültürlerin harmonisini yansıtan canlı bir metropoldür. Geleneksel sanatlardan modern sanata, klasik müzikten çağdaş performanslara kadar geniş bir yelpazede kültürel aktiviteler sunar.</p>
+                <div class="highlight-box">
+                    <strong>Kültürel Mekanlar</strong>
+                    Şehir genelinde bulunan müzeler, sanat galerileri, tiyatrolar ve konser salonları, İstanbul'un zengin kültür-sanat hayatına ev sahipliği yapmaktadır.
+                </div>
+            </div>
+
+            <div class="intro-section">
+                <h3>Coğrafi Konum ve Doğal Güzellikler</h3>
+                <p>Avrupa ve Asya kıtalarını birbirine bağlayan İstanbul Boğazı, şehre eşsiz bir kimlik kazandırır. Marmara Denizi'nden Karadeniz'e uzanan bu su yolu, dünyada iki kıtayı birbirinden ayıran tek boğaz özelliğini taşır.</p>
+                <div class="highlight-box">
+                    <strong>Doğal Özellikler</strong>
+                    Boğaz kıyıları, adalar, korular ve şehir parkları İstanbul'un doğal güzelliklerini oluşturur.
+                </div>
+            </div>
+
+            <div class="intro-section">
+                <h3>Yaşayan Şehir</h3>
+                <p>16 milyonu aşan nüfusuyla İstanbul, Türkiye'nin en kalabalık şehridir. Modern iş merkezleri, alışveriş merkezleri, restoranlar ve eğlence mekanlarıyla 24 saat yaşayan bir metropoldür.</p>
+                <div class="highlight-box">
+                    <strong>Şehir Hayatı</strong>
+                    Geleneksel çarşılardan modern alışveriş merkezlerine, sokak lezzetlerinden lüks restoranlara kadar her türlü yaşam tarzına hitap eden seçenekler sunar.
+                </div>
+            </div>
+
+            <div class="intro-section">
+                <h3>Gastronomi</h3>
+                <p>İstanbul mutfağı, yüzyılların birikimini yansıtan zengin bir gastronomi kültürüne sahiptir. Osmanlı saray mutfağından geleneksel Türk mutfağına, sokak lezzetlerinden modern füzyon mutfağına kadar geniş bir yelpazede lezzetler sunar.</p>
+                <div class="highlight-box">
+                    <strong>Yerel Lezzetler</strong>
+                    Balık-ekmek, kumpir, Türk kahvesi, baklava ve börek çeşitleri şehrin vazgeçilmez tatlarıdır.
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+

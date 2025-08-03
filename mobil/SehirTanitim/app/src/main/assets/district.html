@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İlçeler - ASP.NET Uygulamam</title>
+    <link href="Content/bootstrap.css" rel="stylesheet"/>
+    <link href="Content/site.css" rel="stylesheet"/>
+
+    <script src="Scripts/modernizr-2.8.3.js"></script>
+
+    <style>
+        body {
+            background-color: #f0f0f0;
+            min-height: 100vh;
+        }
+
+        .body-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        /* Navbar stilini güncelle */
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Footer stilini güncelle */
+        footer {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container içindeki içerikleri düzenle */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        input[type="submit"] {
+            margin-top: 2%;
+            margin-bottom: 2%;
+            background-color: limegreen;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #45a049; /* hover olduğunda biraz koyu */
+            }
+
+            input[type="submit"]:disabled {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+
+
+
+        @media (max-width: 768px) {
+            .body-content {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div style="height:40px;"></div>
+<div class="container body-content">
+
+
+
+
+
+    <div class="container mt-4">
+
+
+
+
+        <!-- İlçeler Tablosu -->
+        <section class="mb-5">
+            <h3>İlçeler</h3>
+            <table class="table table-bordered">
+                <thead class="bg-primary text-white">
+                <tr>
+                    <th>İlçe Adı</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Gaziosmanpasa</td>
+                </tr>
+                <tr>
+                    <td>Besiktas</td>
+                </tr>
+                <tr>
+                    <td>Kadik&#246;y</td>
+                </tr>
+                <tr>
+                    <td>Basaksehir</td>
+                </tr>
+                <tr>
+                    <td>&#220;sk&#252;dar</td>
+                </tr>
+                <tr>
+                    <td>Ey&#252;p</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+    </div>
+
+    <hr />
+    <footer>
+        <p>&copy; Copyright 2025 - Alikan Köse <a href="https://alikan.com.tr">(alikan.com.tr)</a></p>
+    </footer>
+</div>
+
+
+<script src="Scripts/jquery-3.4.1.js"></script>
+
+<script src="Scripts/bootstrap.js"></script>
+
+
+</body>
+</html>
